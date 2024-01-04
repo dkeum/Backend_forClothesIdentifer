@@ -10,10 +10,17 @@ from PIL import Image
 import numpy as np
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+
+@app.route('/hello', methods=['GET'])
+@cross_origin()
+def hello():
+    response_data = {"message": "hi"}
+    return jsonify(response_data), 200
 
 
 # def create_app(test_config=None):
