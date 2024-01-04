@@ -57,7 +57,7 @@ def predict_classes():
 
         # Load your model (FashionMNISTModelV2) and make predictions
         loaded_model = FashionMNISTModelV2(input_shape=1, hidden_units=10, output_shape=10)
-        MODEL_SAVE_PATH = 'flaskr/models/cv_model.pth'
+        MODEL_SAVE_PATH = './models/cv_model.pth'
         loaded_state_dict = torch.load(MODEL_SAVE_PATH, map_location=torch.device('cpu'))
         loaded_model.load_state_dict(loaded_state_dict)
 
