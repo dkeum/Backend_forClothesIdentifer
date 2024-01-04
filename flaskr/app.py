@@ -22,7 +22,7 @@ def hello():
     response_data = {"message": "hi"}
     return jsonify(response_data), 200
 
-@app.route('/api/predict', methods=['GET'])
+@app.route('/api/predict', methods=['GET','POST'])
 @cross_origin()
 def predict_classes():
 
