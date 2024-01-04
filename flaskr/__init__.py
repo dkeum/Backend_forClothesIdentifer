@@ -33,6 +33,11 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+    @app.route('/', methods=['GET'])
+    @cross_origin()
+    def default():
+        response_data = {"message": "hi"}
+        return jsonify(response_data), 200
     
     @app.route('/hello', methods=['GET'])
     @cross_origin()
