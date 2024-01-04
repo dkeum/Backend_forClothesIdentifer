@@ -22,6 +22,8 @@ def hello():
     response_data = {"message": "hi"}
     return jsonify(response_data), 200
 
+@app.route('/api/predict', methods=['GET'])
+@cross_origin()
 def predict_classes():
 
     if request.method == 'POST':
