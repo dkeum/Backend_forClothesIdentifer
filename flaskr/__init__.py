@@ -4,8 +4,8 @@ from flask import Flask
 from flask_cors import CORS,  cross_origin
 from flask import request, jsonify
 import torch
-from flaskr.model import FashionMNISTModelV2
-from flaskr.predict import make_predictions
+from model import FashionMNISTModelV2
+from predict import make_predictions
 from PIL import Image
 import numpy as np
 
