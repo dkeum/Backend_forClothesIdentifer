@@ -10,7 +10,8 @@ from PIL import Image
 import numpy as np
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
 def hello_world():
@@ -25,6 +26,10 @@ def hello():
 @app.route('/api/predict', methods=['GET','POST'])
 @cross_origin()
 def predict_classes():
+
+    if request.method == 'GET':
+        response_data = {"message": "try post method"}
+        return jsonify(response_data), 200
 
     if request.method == 'POST':
         if 'file' not in request.files:
