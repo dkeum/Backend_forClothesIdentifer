@@ -2,13 +2,11 @@ import os
 
 from flask import Flask
 from flask_cors import CORS,  cross_origin
-from flask import request, render_template, json,jsonify, Response
-import requests
+from flask import request, jsonify
 import torch
 from .model import FashionMNISTModelV2
 from .predict import make_predictions
 from PIL import Image
-import io
 import numpy as np
 
 
