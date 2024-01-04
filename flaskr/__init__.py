@@ -36,7 +36,11 @@ def create_app(test_config=None):
     except OSError:
         pass
     
-    
+    @app.route('/hello', methods=['GET'])
+    @cross_origin()
+    def hello():
+        response_data = {"message": "hi"}
+        return jsonify(response_data), 200
     @app.route('/api/predict', methods=['POST'])
     @cross_origin()
     def predict_classes():
